@@ -18,9 +18,12 @@ const Dashboard = () => {
         // Fetch user data from backend
         const fetchUserData = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/auth/me", {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
+                const res = await axios.get(
+                    `${import.meta.env.VITE_API_URL}/api/auth/me`,
+                    {
+                        headers: { Authorization: `Bearer ${token}` }
+                    }
+                );
                 console.log(res.data);
                 setUserData(res.data);
             } catch (error) {
